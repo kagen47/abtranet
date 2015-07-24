@@ -1,0 +1,64 @@
+extends ../layout.jade
+
+block title
+	title log in
+	link(href="css/login-register.css" rel="stylesheet" type="text/css")
+
+block content
+	div#successful_login.fix-middle
+		div.container.text-center
+
+	div#dialog.dialog.dialog-effect-in
+		div.dialog-front
+			div.dialog-content
+				form#login_form.dialog-form(method='post' action='/login')
+					fieldset
+						legend.
+							Log in
+						div#form-group<!-- username input-->
+							label.control-label(for="user_username").
+								Username:
+							input#user_name.form-control(type="text" name="username" autofocus)
+						div#form-group<!-- username input-->
+							label.control-label(for="user_password").
+								Password:
+							input#user_password.form-control(type="password" name='password')
+						div.text-center
+							p
+								|Create an Account
+								br
+								|for 
+								a.link.user-actions(href="#register.html"): strong.
+									new user
+		.dialog-back
+			.dialog-content
+				form#register_form.dialog-form(action='', method='POST')
+					fieldset<!-- new users-->
+						legend.
+							Register
+						.form-group <!--first name input-->
+							label.control-label(for='firstName') First Name:
+							input#user_firstName.form-control(type='text', name='user_firstName')
+						.form-group<!--last name input-->
+							label.control-label(for='lastName') Last Name:
+							input#user_lastName.form-control(type='text', name='user_lastName')
+						.form-group <!--eMail input-->
+							label.control-label(for='user_email') Email:
+							input#user_email.form-control(type='text', name='user_mail')
+						.form-group <!--user name input-->
+							label.control-label(for='user_username') Username:
+							input#user_username.form-control(type='text', name='user_username')
+						.form-group<!-- password input-->
+							label.control-label(for='user_password') Password:
+							input#user_password.form-control(type='password', name='user_password')
+						.form-group
+							// password confirm input
+							label.control-label(for='user_cnf_password') Confirm password:
+							input#user_cnf_password.form-control(type='password', name='user_cnf_password')
+						.pad-btm-20
+							input.btn.btn-default.btn-block.btn-lg(type='submit', value='Submit')
+						.text-center
+							p
+								| Return to 
+								a.link.user-actions(href='#logIn.html')
+								strong login page

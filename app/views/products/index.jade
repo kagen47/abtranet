@@ -1,0 +1,27 @@
+extends ../layout.jade
+
+block title
+	title Abtranet Products
+	link(href='/css/eStyle.css' rel='stylesheet' type='text/css')
+
+
+block content
+	div.mainContent
+		each val, i in products
+			if i % 3 == 0
+				div.productRow
+					each val2, i2 in products.slice(i, i+3)
+						div.productInfo
+							if products[i+i2].img
+								div
+									a(href="/products/#{products[i+i2]._id}"): img(src=products[i+i2].img alt=products[i+i2].model width="100" height="100")
+							else
+								div
+									a(href="/products/#{products[i+i2]._id}"): img(src="/img/no-img.png" alt="no image available" width="100" height="100")
+							p.price
+								|$#{products[i+i2].price}
+							p.productContent
+								a(href='/products/#{products[i+i2]._id}') #{products[i+i2].model}
+							form(method='post' action='/products/cart/add/#{products[i+i2]._id}')
+								button.addToCartButton(type='submit' name='add-to-cart').
+									Add to cart

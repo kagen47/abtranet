@@ -1,0 +1,30 @@
+extends ../layout.jade
+
+block head
+	title #{product[0].model}
+	link(href='/css/eStyle.css' rel='stylesheet' type='text/css')
+
+block content
+	if product[0].img
+		img(src=product[0].img alt=product[0].model width='100' height='100')
+	else 
+		img(src='/img/no-img.png' alt='no image available' width='100' height='100')
+
+	p
+		|Model: #{product[0].model}
+		br
+		|Part Number: #{product[0].partNum}
+		br
+		|Manufacturer: #{product[0].manufacturer}
+		br
+		|$#{product[0].price}
+		br
+		|#{product[0].description}
+
+	form(method='post' action='/products/cart/add/#{product[0]._id}')
+		button(type='submit' name='add-to-cart').
+			Add to shopping cart
+	if inCart
+		form(method='post' action='/products/cart/remove/#{product[0]._id}')
+			button(type='submit' name='remove-from-cart').
+				Remove from shopping cart

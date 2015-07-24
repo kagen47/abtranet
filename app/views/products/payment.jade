@@ -1,0 +1,36 @@
+block head
+	title hi
+
+block content
+	form(method='post' action='/products/payment')
+		p
+			|Credit card information
+		input(type='text' name='ccNum' placeholder='Credit card number' maxlength='16')
+		br
+		input(type='text' name='expMonth' placeholder='MM' maxlength='2')
+		br
+		input(type='text' name='expYear' placeholder='YYYY' maxlength='4')
+		br
+		input(type='text' name='cvv' placeholder='cvv' maxlength='4')
+		br
+		input(type='text' name='firstName' placeholder='First Name')
+		br
+		input(type='text' name='lastName' placeholder='Last Name')
+		br
+		p
+			|Shipping address
+		input(type='text' name='street' placeholder='Street')
+		br
+		input(type='text' name='city' placeholder='City')
+		br
+		input(type='text' name='state' placeholder='State')
+		br
+		input(type='text' name='postalCode' placeholder='Postal code')
+		br
+		input(type='text' name='country' placeholder='Country')
+		br
+		input(type='submit' name='submit')
+
+	form(method='get' action='/products/cart')
+		button(type='submit' name='back').
+			Back

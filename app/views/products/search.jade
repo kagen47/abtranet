@@ -1,0 +1,21 @@
+extends ../layout.jade
+
+block title
+	title Abtranet Search
+	link(href='/css/eStyle.css' rel='stylesheet' type='text/css')
+
+block content
+	p(style='white-space:pre;')
+		|Search category: #{searchCategory}
+		|Search word: #{searchWord}
+		|Result: #{products.length} items
+
+	each product in products
+		if product.img
+			a(href="/products/#{product._id}"): img(src=product.img alt=product.model width="100" height="100")
+		else
+			a(href="/products/#{product._id}"): img(src="/img/no-img.png" alt="no image available" width="100" height="100")
+		p
+			a(href='/products/#{product._id}') #{product.model}
+			br
+			|$#{product.price}
