@@ -37,7 +37,7 @@ module.exports = function() {
 	app.engine('html', engines.handlebars);
 
 	require('../app/routes/index')(app);
-	require('../app/routes/login')(app);
+	require('../app/routes/user')(app);
 	
 	require('../app/routes/payment')(app);
 	require('../app/routes/cart')(app);

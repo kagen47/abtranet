@@ -1,10 +1,23 @@
-var User = require('mongoose').model('Product');
+var User = require('mongoose').model('User');
+
+exports.getUsers = function(req, res) {
+	User.find({}, function(err, data) {
+		if (err) {
+			res.send(err);
+		}
+		else {
+			res.json(data);
+		}
+	});
+};
 
 exports.login = function(req, res) {
-	User.find({userName: req.body.username}, function(err, data) {
+	console.log(req.body.username);
+	console.log(req.body.password);
+	User.find({username: req.body.username}, function(err, data) {
 		if (err) return res.send(err);
 
-		if (data.password == req.body.username) {
+		if (data[0].password === req.body.password) {
 			res.send('login successful');
 		}
 		else {
@@ -31,7 +44,7 @@ exports.register = function(req, res) {
 			email     : email
 		});
 
-		User.save(function(err) {
+		newUser.save(function(err) {
 			if (err) {
 				res.send(err);
 			}

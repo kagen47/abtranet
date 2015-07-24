@@ -7,7 +7,7 @@ exports.showForm = function(req, res) {
 
 exports.pay =  function(req, res) {
 	// Read the incoming product data
-	var ccNum = req.params.ccNum;
+	var ccNum = req.body.ccNum;
 	var firstName = req.body.firstName;
 	var lastName = req.body.lastName;
 	var expMonth = req.body.expMonth;

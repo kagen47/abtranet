@@ -27,4 +27,5 @@ module.exports = function() {
 	}
 
 	require('../app/models/product');
+	require('../app/models/user');
 }
