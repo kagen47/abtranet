@@ -6,7 +6,8 @@ var db = mongoose();
 var app = express();
 var pp = paypal();
 
-app.listen(3000);
+var port = process.env.PORT || 3000;
+app.listen(port);
 
 module.exports = app;
 
