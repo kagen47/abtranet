@@ -7,18 +7,18 @@ exports.showForm = function(req, res) {
 
 exports.pay =  function(req, res) {
 	// Read the incoming product data
-	var ccNum = req.param('ccNum');
-	var firstName = req.param('firstName');
-	var lastName = req.param('lastName');
-	var expMonth = req.param('expMonth');
-	var expYear = req.param('expYear');
-	var cvv = req.param('cvv');
+	var ccNum = req.params.ccNum;
+	var firstName = req.body.firstName;
+	var lastName = req.body.lastName;
+	var expMonth = req.body.expMonth;
+	var expYear = req.body.expYear;
+	var cvv = req.body.cvv;
 	// billing address
-	var street = req.param('street');
-	var city = req.param('city');
-	var state = req.param('state');
-	var postalCode = req.param('postalCode');
-	var country = req.param('country');
+	var street = req.body.street;
+	var city = req.body.city;
+	var state = req.body.state;
+	var postalCode = req.body.postalCode;
+	var country = req.body.country;
 
 	// Read the payment information to pass to the PayPal library
 	var payment = {

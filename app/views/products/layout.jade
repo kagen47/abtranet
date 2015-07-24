@@ -1,0 +1,27 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset='UTF-8')
+    block title
+    link(href='css/eStyle.css', rel='stylesheet', type='text/css')
+  body
+    div#mainWrapper
+      header
+        div#logo
+          img(src='/img/logo.png' alt='globe' width='100' height='100')
+        h1 ABTRANET Global Solutions
+        div#headerLinks
+          a(href="/login" title="Login/Register") Login/Register
+          a(href='/') Home
+          a(href='/products') Products
+          a(href='/products/cart') Shopping Cart
+
+    form(method='post' action='/products/search')
+      select(name='category')
+        option(value='model') Model
+        option(value='manufacturer') manufacturer
+      input(type='search' name='search')
+      input(type='submit' name='submit')
+
+    div#content
+      block content

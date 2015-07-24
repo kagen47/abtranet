@@ -30,8 +30,11 @@ module.exports = function() {
 		secret: 'foo'
 	}));
 
-	app.set('views', './app/views');
+	app.set('views', __dirname + '/../app/views');
 	app.set('view engine', 'jade');
+
+	var engines = require('consolidate');
+	app.engine('html', engines.handlebars);
 
 	require('../app/routes/index')(app);
 	require('../app/routes/login')(app);

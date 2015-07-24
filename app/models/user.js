@@ -10,7 +10,7 @@ var userSchema = new Schema({
 		type: String,
 		required: true
 	},
-	userName: {
+	username: {
 		type: String,
 		unique: true,
 		required: true
@@ -28,24 +28,24 @@ var userSchema = new Schema({
 		type: String,
 		required: true,
 		index: true
-	},
-	address: {
-		street: {
-			type: String
-		},
-		city: {
-			type: String
-		},
-		state: {
-			type: String
-		},
-		postalCode: {
-			type: String
-		},
-		country: {
-			type: String
-		}
-	}
+	}//,
+	// address: {
+	// 	street: {
+	// 		type: String
+	// 	},
+	// 	city: {
+	// 		type: String
+	// 	},
+	// 	state: {
+	// 		type: String
+	// 	},
+	// 	postalCode: {
+	// 		type: String
+	// 	},
+	// 	country: {
+	// 		type: String
+	// 	}
+	// }
 });
 
 exports = mongoose.model('User', userSchema);
