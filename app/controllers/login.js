@@ -15,26 +15,33 @@ exports.login = function(req, res) {
 };
 
 exports.register = function(req, res) {
-	var firstName = req.body.firstName,
-		lastName  = req.body.lastName,
-		email     = req.body.email,
-		username  = req.body.username,
-		password  = req.body.password;
+	var firstName      = req.body.firstName,
+		  lastName       = req.body.lastName,
+		  email          = req.body.email,
+		  username       = req.body.username,
+		  password       = req.body.password,
+		  passwordRetype = req.body.passwordRetype;
 
-	var newUser = new User({
-		firstName : firstName,
-		lastName  : lastName,
-		username  : username,
-		password  : password,
-		email     : email
-	});
+	if (password == passwordRetype) {
+		var newUser = new User({
+			firstName : firstName,
+			lastName  : lastName,
+			username  : username,
+			password  : password,
+			email     : email
+		});
 
-	User.save(function(err) {
-		if (err) {
-			res.send(err);
-		}
-		else {
-			res.send('sucess');
-		}
-	})
+		User.save(function(err) {
+			if (err) {
+				res.send(err);
+			}
+			else {
+				res.send('sucess');
+			}
+		});
+	}
+	else {
+		res.redirect('/registeration');
+	}
+
 };

@@ -11,4 +11,8 @@ module.exports = function(app) {
     app.get('/service', function(req, res) {
         res.render('service.html');
     });
+
+    app.get('/404', function(req, res) {
+        res.render('404.html');
+    });
 };

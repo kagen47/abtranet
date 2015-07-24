@@ -44,8 +44,11 @@ module.exports = function() {
 	require('../app/routes/search')(app);
 	require('../app/routes/products')(app);
 
-
 	app.use(express.static('./public'));
+	
+	app.get(/.+/, function(req, res) {
+		res.redirect('/404');
+	});
 
 	return app;
 };

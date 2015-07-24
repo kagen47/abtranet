@@ -1,27 +1,120 @@
 doctype html
-html(lang="en")
+html(lang='en')
   head
-    meta(charset='UTF-8')
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(name='description', content='Developed By M Abdur Rokib Promy')
+    meta(name='author', content='cosmic')
+    meta(name='keywords', content='Bootstrap 3, Template, Theme, Responsive, Corporate, Business')
+    link(rel='shortcut icon', href='/1.png')
     block title
-    link(href='css/eStyle.css', rel='stylesheet', type='text/css')
-  body
-    div#mainWrapper
-      header
-        div#logo
-          img(src='/img/logo.png' alt='globe' width='100' height='100')
-        h1 ABTRANET Global Solutions
-        div#headerLinks
-          a(href="/login" title="Login/Register") Login/Register
-          a(href='/') Home
-          a(href='/products') Products
-          a(href='/products/cart') Shopping Cart
-
-    form(method='post' action='/products/search')
-      select(name='category')
-        option(value='model') Model
-        option(value='manufacturer') manufacturer
-      input(type='search' name='search')
-      input(type='submit' name='submit')
-
-    div#content
+    // Bootstrap core CSS
+    link(href='/css/bootstrap.min.css', rel='stylesheet')
+    link(href='/css/theme.css', rel='stylesheet')
+    link(href='/css/bootstrap-reset.css', rel='stylesheet')
+    // <link href="css/bootstrap.min.css" rel="stylesheet">
+    // external css
+    link(href='/assets/font-awesome/css/font-awesome.css', rel='stylesheet')
+    link(rel='stylesheet', href='/css/flexslider.css')
+    link(href='/assets/bxslider/jquery.bxslider.css', rel='stylesheet')
+    link(rel='stylesheet', href='/css/animate.css')
+    link(rel='stylesheet', href='/assets/owlcarousel/owl.carousel.css')
+    link(rel='stylesheet', href='/assets/owlcarousel/owl.theme.css')
+    link(href='/css/superfish.css', rel='stylesheet', media='screen')
+    link(href='/http://fonts.googleapis.com/css?family=Lato', rel='stylesheet', type='text/css')
+    // Custom styles for this template
+    link(rel='stylesheet', type='text/css', href='/css/component.css')
+    link(href='/css/style.css', rel='stylesheet')
+    link(href='/css/style-responsive.css', rel='stylesheet')
+    link(rel='stylesheet', type='text/css', href='/css/parallax-slider/parallax-slider.css')
+    script(type='text/javascript', src='/js/parallax-slider/modernizr.custom.28468.js')
+    // header start design inside body
+    body
+      header.head-section
+        .navbar.navbar-default.navbar-static-top.container
+          .navbar-header
+            button.navbar-toggle(data-target='.navbar-collapse', data-toggle='collapse', type='button')
+              span.icon-bar
+              span.icon-bar
+              span.icon-bar
+            a.navbar-brand(href='/')
+              img(alt='sample', src='/images/earthgif.gif')
+              span ABTRANET Global Solutions
+          .navbar-collapse.collapse
+            // nav bar horizontal
+            ul.nav.navbar-nav
+              li
+                // home menu option
+                a(href='/') Home
+              // about menu option
+              li
+                a(href='/about') About
+              // service menu option
+              li
+                a(href='/service') Services
+              // contact menu option
+              li
+                a(href='/contact') Contact
+              li.dropdown
+                a.dropdown-toggle(data-close-others='false', data-delay='0', data-hover='dropdown', data-toggle='dropdown', href='/#')
+                  | Products 
+                  i.fa.fa-angle-down
+                ul.dropdown-menu
+                  // nav bar horizontal drop down option
+                  li
+                    // products menu option
+                    a(href='/products') Products
+                  li
+                    // shoppingCart menu option
+                    a(href='/products/cart') Shopping Cart
+                  li
+                    // LOST PAGE option
+                    a(href='/404') 404 page
+              li.dropdown
+                a.dropdown-toggle(data-close-others='false', data-delay='0', data-hover='dropdown', data-toggle='dropdown', href='/#')
+                  | Login/Register 
+                  i.fa.fa-angle-down
+                ul.dropdown-menu
+                  // nav bar horizontal drop down option
+                  li
+                    // Log In option
+                    a(href='/login') Login
+                  li
+                    // Registration option
+                    a(href='/registration') Registration
+              // Search Option ontop of site
+              li
+                input.form-control.search(placeholder=' Search', type='text')
       block content
+
+
+
+
+
+//- doctype html
+//- html(lang="en")
+//-   head
+//-     meta(charset='UTF-8')
+//-     block title
+//-     link(href='/css/eStyle.css', rel='stylesheet', type='text/css')
+//-   body
+//-     div#mainWrapper
+//-       header
+//-         div#logo
+//-           img(src='/img/logo.png' alt='globe' width='100' height='100')
+//-         h1 ABTRANET Global Solutions
+//-         div#headerLinks
+//-           a(href="/login" title="Login/Register") Login/Register
+//-           a(href='/') Home
+//-           a(href='/products') Products
+//-           a(href='/products/cart') Shopping Cart
+
+//-     form(method='post' action='/products/search')
+//-       select(name='category')
+//-         option(value='model') Model
+//-         option(value='manufacturer') manufacturer
+//-       input(type='search' name='search')
+//-       input(type='submit' name='submit')
+
+//-     div#content
+//-       block content
