@@ -1,4 +1,4 @@
 module.exports = {
-	db: 'mongodb://localhost:27017/products',
+	db: process.env.MONGOLAB_URI || 'mongodb://localhost:27017/products',
 	sessionSecret: 'foo'
 };

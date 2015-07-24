@@ -6,7 +6,14 @@ module.exports = function() {
 	var db;
 	if (config.debug) {
 		var env = require('./env/dev');
-		db = mongoose.connect(env.db);
+		db = mongoose.connect(env.db, function(err, res) {
+			if (err) {
+				console.log('ERROR connecting to: ' + env.db + '. ' + err);
+			}
+			else {
+				console.log('Succeeded connected to: ' + env.db);
+			}
+		});
 
 		// var client = new elasticsearch.Client({
 		// 	host: 'localhost:27017',
