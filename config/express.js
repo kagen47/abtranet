@@ -1,11 +1,11 @@
 var config = require('./config');
 
-var express = require('express');
-var bodyParser = require('body-parser');
-var compress = require('compression');
+var express      = require('express');
+var bodyParser   = require('body-parser');
+var compress     = require('compression');
 var cookieParser = require('cookie-parser');
-var session = require('express-session');
-var morgan = require('morgan');
+var session      = require('express-session');
+var morgan       = require('morgan');
 //var methodOverride = require('method-override');
 
 module.exports = function() {
@@ -37,7 +37,7 @@ module.exports = function() {
 	app.engine('html', engines.handlebars);
 
 	require('../app/routes/index')(app);
-	require('../app/routes/user')(app);
+	// require('../app/routes/user')(app);
 	
 	require('../app/routes/payment')(app);
 	require('../app/routes/cart')(app);

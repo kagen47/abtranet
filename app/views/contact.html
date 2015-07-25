@@ -20,6 +20,13 @@
     <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
     <link rel="stylesheet" href="css/flexslider.css"/>
     <link href="assets/bxslider/jquery.bxslider.css" rel="stylesheet" />
+
+    <!-- Custom styles for this template -->
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/style-responsive.css" rel="stylesheet" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
+
     <link rel="stylesheet" type="text/css" href="css/animate.css">
     <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
 
@@ -27,8 +34,6 @@
     <!-- Custom styles for this template -->
     <link href="css/style.css" rel="stylesheet">
     <link href="css/style-responsive.css" rel="stylesheet" />
-
- 
   </head>
 
   <body>
@@ -50,12 +55,12 @@
                   <li>
                   <!-- home menu option-->
                       <a href="/">Home</a>
-                  		</li>
+                      </li>
                   
                   <!-- about menu option-->
                   <li>
                       <a href="/about">About</a>
-                  		</li>
+                      </li>
                   <!-- service menu option-->    
                   <li>
                       <a href="/service">Services</a>
@@ -63,55 +68,27 @@
                    <!-- contact menu option-->  
                    <li>
                       <a href="/contact">Contact</a>
-                  		</li>
-               
-                  <li class="dropdown">
-                      <a class="dropdown-toggle" data-close-others="false" data-delay="0" data-hover=
-                      "dropdown" data-toggle="dropdown" href="#">Products <i class="fa fa-angle-down"></i>
-                      </a>
-                      <ul class="dropdown-menu">
-                      
-                      <!-- nav bar horizontal drop down option-->
-                           <li>
-                           	  <!-- products menu option-->
-                              <a href="/products">Products</a>
-                          		</li>
-                           <li>
-                           		 <!-- shoppingCart menu option-->
+                      </li>
+                
+                              <!-- products menu option-->
+                    <li>
+                       <a href="/products">Products</a>
+                       </li>
+                       
+                     <li>
+                               <!-- shoppingCart menu option-->
                               <a href="/products/cart">Shopping Cart</a>
-                          		</li>
-                           <li>
-                           	 <!-- LOST PAGE option-->
-                              <a href="/404">404 page</a>
-                          		</li>
-                      </ul>
-                  </li>
-                  
-                  
-                  <li class="dropdown">
-                      <a class="dropdown-toggle" data-close-others="false" data-delay="0" data-hover=
-                      "dropdown" data-toggle="dropdown" href="#">Login/Register <i class="fa fa-angle-down"></i>
-                      </a>
-                      <ul class="dropdown-menu">
-                          
-                      <!-- nav bar horizontal drop down option-->
-                          <li>
-                          		 <!-- Log In option -->
-                              <a href="/login">Login</a>
-                          		</li>
+                              </li>
                                 
-                          <li>
-                          		<!-- Registration option -->
-                              <a href="/registration">Registration</a>
-                          		</li>
-                        
-                      </ul>
-                  </li>
-                 
-                 <!--Search Option ontop of site  -->
-                 
-                  <li><input class="form-control search" placeholder=" Search" type="text"></li>
-              </ul>
+                     
+       
+                  <!--TRANSLATE BOX-->
+                                          <div id="google_translate_element2"></div>
+                  <script type="text/javascript">function googleTranslateElementInit2() {new google.translate.TranslateElement({pageLanguage: 'en', autoDisplay: false}, 'google_translate_element2');}</script>
+                  <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit2"></script>
+                    </div>
+                    <!--END TRANSLATE BOX-->
+                </ul>
           </div>
       </div>
     </header>
@@ -163,30 +140,30 @@
           </h4>
           <h5> SEND A MESSAGE </h5>
           <div class="contact-form">
-            <form role="form">
+            <form role="form" method='post' action='/contact'>
               <div class="form-group">
                 <label for="name">
                   Name
                 </label>
-                <input type="text" placeholder="" id="name" class="form-control">
+                <input type="text" name='name' placeholder="" id="name" class="form-control">
               </div>
               <div class="form-group">
                 <label for="email">
                   Email
                 </label>
-                <input type="text" placeholder="" id="email" class="form-control">
+                <input type="text" name='email' placeholder="" id="email" class="form-control">
               </div>
-              <div class="form-group">
+              <!-- <div class="form-group">
                 <label for="phone">
                   Phone
                 </label>
                 <input type="text" id="phone" class="form-control">
-              </div>
+              </div> -->
               <div class="form-group">
                 <label for="phone">
                   Message
                 </label>
-                <textarea placeholder="" rows="5" class="form-control">
+                <textarea name="message" placeholder="" rows="5" class="form-control">
                 </textarea>
               </div>
               <button class="btn btn-info" type="submit">
@@ -283,7 +260,7 @@
 
       //google map
       function initialize() {
-        var myLatlng = new google.maps.LatLng(51.508742,-0.120850);
+        var myLatlng = new google.maps.LatLng(40.796808,-73.944477);
         var mapOptions = {
           zoom: 5,
           center: myLatlng,

@@ -23,6 +23,8 @@
     "js-cookie": "^2.0.3",
     "mongoose": "^4.0.7",
     "morgan": "^1.6.1",
+    "nodemailer": "^1.4.0",
+    "nodemailer-smtp-transport": "^1.0.3",
     "paypal-rest-sdk": "^1.6.0"
   }
 }

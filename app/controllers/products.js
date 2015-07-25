@@ -1,10 +1,14 @@
 var Product = require('mongoose').model('Product');
+var async = require('async');
 
 exports.getProducts = function(req, res) {
-	Product.find({}, fields).exec(function(err, data){
-		if (err) return res.send(err);
-	
-		res.json(data);
+	Product.find({}, function(err, data){
+		if (err) {
+			res.send(err);
+		}
+		else {
+			res.json(data);
+		}
 	});
 };
 
@@ -24,9 +28,37 @@ exports.addProduct = function(req, res) {
 //   display methods
 // ------------------------------------------------------------------------------------------
 exports.showProducts = function(req, res) {
-	Product.find({}, '_id model price img', function(err, data) {
-		if (err) return res.send(err);
-
+	// Get all the manufacturers
+	// Product.aggregate(
+	// 	{ $group: {_id: '$manufacturer'}},
+	// 	{ $project: {_id: 1}},
+	// 	function(err, data) {
+	// 		if (err) {
+	// 			console.log(err);
+	// 		}
+	// 		else {
+	// 			var manufacturers = data;
+	// 			Product.find({}, '_id manufacturer img', function(err, data) {
+	// 				if (err) {
+	// 					console.log(err);
+	// 				}
+	// 				else {
+	// 					console.log(manufacturers);
+	// 					console.log(data);
+	// 					res.render('products/index', {
+	// 						manufacturers: manufacturers,
+	// 						products: data
+	// 					});
+	// 				}
+	// 			});
+	// 		}
+	// 	}
+	// );
+	Product.find({}, '_id manufacturer img', function(err, data) {
+		if (err) {
+			console.log(err);
+			res.redirect('/404');
+		}
 		res.render('products/index', {
 			products: data
 		});
@@ -58,8 +90,27 @@ exports.showProduct = function(req, res) {
 };
 
 exports.search = function(req, res) {
-	res.redirect('/products/search/' + req.body.category + '/' + req.body.search);
+	res.redirect('/products/search/' + req.body.search);
 };
+
+exports.showSearchResult = function(req, res) {
+	// var searchWords = req.body.searchWord.split(' ');
+
+	// async.each(searchWords, function(id, callback) {
+	// 	Product.find({_id:id}).exec(function(err, data) {
+	// 		if (err) return res.send(err);
+
+	// 		products.push(data[0]);
+	// 		callback();
+	// 	});
+	// }, function(err) {
+	// 	if (err) return res.send(err);
+	// 	res.render('products/cart', {
+	// 		subtotal: cart[0],
+	// 		products: products
+	// 	});
+	// });
+}
 
 exports.showModelSearchResult = function(req, res) {
 	Product.find({

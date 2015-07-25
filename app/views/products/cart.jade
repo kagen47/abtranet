@@ -1,28 +1,239 @@
-extends ./layout.jade
-
-block title
-	title shopping cart
-
-block content
-	p
-		|Subtotal (#{products.length} items) $#{subtotal}
-	
-	each product in products
-
-		if product.img
-			a(href="/products/#{product._id}"): img(src=product.img alt=product.model width="100" height="100")
-		else
-			a(href="/products/#{product._id}"): img(src="/img/no-img.png" alt="no image available" width="100" height="100")
-		p 
-			|#{product.model}
-			br
-			|$#{product.price}
-
-		form(method='post' action='/products/cart/remove/#{product._id}')
-			button(type='submit' name='remove-from-cart').
-				Remove from cart
-
-	if subtotal > 0
-		form(method='get' action='/products/payment')
-			button(type='submit' name='pay').
-				Proceed to checkout
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(name='description', content='Developed By M Abdur Rokib Promy')
+    meta(name='author', content='cosmic')
+    meta(name='keywords', content='Bootstrap 3, Template, Theme, Responsive, Corporate, Business')
+    link(rel='shortcut icon', href='/img/favicon.png')
+    title
+      | ABTRANET |Shopping Cart
+    // Bootstrap core CSS
+    link(href='/css/bootstrap.min.css', rel='stylesheet')
+    link(href='/css/theme.css', rel='stylesheet')
+    link(href='/css/bootstrap-reset.css', rel='stylesheet')
+    // external css
+    link(href='/assets/font-awesome/css/font-awesome.css', rel='stylesheet')
+    link(rel='stylesheet', href='/css/flexslider.css')
+    link(href='/assets/bxslider/jquery.bxslider.css', rel='stylesheet')
+    link(rel='stylesheet', href='/assets/owlcarousel/owl.carousel.css')
+    link(rel='stylesheet', href='/assets/owlcarousel/owl.theme.css')
+    link(rel='stylesheet', href='/css/animate.css')
+    link(href='/http://fonts.googleapis.com/css?family=Lato', rel='stylesheet', type='text/css')
+    // Custom styles for this template
+    link(href='/css/style.css', rel='stylesheet')
+    link(href='/css/style-responsive.css', rel='stylesheet')
+  body
+    // header start design inside body
+    header.head-section
+      .navbar.navbar-default.navbar-static-top.container
+        .navbar-header
+          button.navbar-toggle(data-target='.navbar-collapse', data-toggle='collapse', type='button')
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand(href='/')
+            img(alt='sample', src='/images/earthgif.gif')
+            span ABTRANET Global Solutions
+        .navbar-collapse.collapse
+          // nav bar horizontal
+          ul.nav.navbar-nav
+            li
+              // home menu option
+              a(href='/') Home
+            // about menu option
+            li
+              a(href='/about') About
+            // service menu option
+            li
+              a(href='/service') Services
+            // contact menu option
+            li
+              a(href='/contact') Contact
+            // products menu option
+            li
+              a(href='/products') Products
+            li
+              // shoppingCart menu option
+              a(href='/products/cart') Shopping Cart
+            // TRANSLATE BOX
+            #google_translate_element2
+            script(type='text/javascript').
+              function googleTranslateElementInit2() {new google.translate.TranslateElement({pageLanguage: 'en', autoDisplay: false}, 'google_translate_element2');}
+            script(type='text/javascript', src='https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit2')
+        // END TRANSLATE BOX
+    // header end
+    // breadcrumbs start
+    .breadcrumbs
+      .container
+        h1
+          | Shopping Cart
+        form(method='post' action='/products/search')
+          input.form-control.search(placeholder=' Search' name='searchWord' type='text')
+        .row
+          .col-lg-4.col-sm-4
+            // search button for products page
+            .col-lg-7.about.wow.fadeInRight(style="position:relative; z-index:100")
+              h3(style="width: 400px; margin-top: 18px") Subtotal (#{products.length} items): $#{subtotal}
+              //- div(style="float:left; z-index: 2000; position:relative; margin-top: 10px;")
+              form.form-group(method='get' action='/products/payment')
+                  button.btn.btn-info(type='submit' name='pay' style="font-size: 20px;").
+                    Checkout
+          // Products start
+          .bg-lg
+            .container
+              .row
+                each product in products
+                  .feature-box.col-lg-12(style="z-index:1; position:relative")
+                    .col-md-4.col-sm-4.item.view.view-tenth(style="max-width:200px; clear:both;")
+                      img(src=product.img alt='work Image')
+                      .mask
+                        a.info(href='/products/product-details/#{product._id}', data-toggle='tooltip', data-placement='top', title='Details')
+                          i.fa.fa-linked
+                    div.col-md-4
+                      table(style="float:left; font-size: 16px")
+                        tr
+                          td(style="width: 300px; color:blue; font-size: 20px") #{product.model}
+                          td(style="font-size:20px") $#{product.price}
+                        tr
+                          td #{product.manufacturer}
+                        tr
+                          td
+                            form(method='post' action='/products/cart/remove/#{product._id}')
+                              button(type='submit' name='remove-form-cart' style="font-size:12px").
+                                Remove from cart
+                    div(style="clear:both; padding-top: 20px")
+                    // This is main
+            // Lastest Products end
+    // breadcrumbs end
+    br
+    br
+    br
+    br
+    br
+    br
+    br
+    br
+    br
+    br
+    br
+    br
+    br
+    br
+    br
+    br
+    br
+    br
+    br
+    // small footer start
+    footer.footer-small
+      .container
+        .row
+          .col-lg-6.col-sm-6.pull-right
+            ul.social-link-footer.list-unstyled
+              // link to FACEBOOK
+              li.wow.flipInX(data-wow-duration='2s', data-wow-delay='.1s')
+                a(href='/https://www.facebook.com/abtranet')
+                  i.fa.fa-facebook
+              // link to LINKEDIN
+              li.wow.flipInX(data-wow-duration='2s', data-wow-delay='.4s')
+                a(href='/#')
+                  i.fa.fa-linkedin
+              // link to TWITTER
+              li.wow.flipInX(data-wow-duration='2s', data-wow-delay='.5s')
+                a(href='/#')
+                  i.fa.fa-twitter
+          .col-md-4
+            .copyright
+              p Copyright 2015.  All rights reserved.
+    // small footer end
+    // js placed at the end of the document so the pages load faster
+    script(src='/js/jquery.js')
+    script(src='/js/bootstrap.min.js')
+    script(type='text/javascript', src='/js/hover-dropdown.js')
+    script(src='/assets/owlcarousel/owl.carousel.js')
+    script(type='text/javascript', src='/assets/bxslider/jquery.bxslider.js')
+    script(defer='', src='/js/jquery.flexslider.js')
+    script(src='/js/jquery.easing.min.js')
+    script(src='/js/link-hover.js')
+    // common script for all pages
+    script(src='/js/common-scripts.js')
+    script(src='/js/wow.min.js')
+    script.
+      wow = new WOW(
+      {
+      boxClass:     'wow',      // default
+      animateClass: 'animated', // default
+      offset:       0          // default
+      }
+      )
+      wow.init();
+    script.
+      $(window).load(function() {
+      $('[data-zlname = reverse-effect]').mateHover({
+      position: 'y-reverse',
+      overlayStyle: 'rolling',
+      overlayBg: '#fff',
+      overlayOpacity: 0.7,
+      overlayEasing: 'easeOutCirc',
+      rollingPosition: 'top',
+      popupEasing: 'easeOutBack',
+      popup2Easing: 'easeOutBack'
+      }
+      );
+      }
+      );
+      $(window).load(function() {
+      $('.flexslider').flexslider({
+      animation: "slide",
+      start: function(slider) {
+      $('body').removeClass('loading');
+      }
+      }
+      );
+      }
+      );
+      $(document).ready(function() {
+      $("#owl-demo1").owlCarousel({
+      items : 4,
+      }
+      );
+      $("#owl-demo2").owlCarousel({
+      items : 4,
+      }
+      );
+      $("#owl-demo3").owlCarousel({
+      items : 4,
+      }
+      );
+      }
+      );
+      $(window).scroll(function() {
+      $('#skillz').each(function(){
+      var imagePos = $(this).offset().top;
+      var viewportheight = window.innerHeight;
+      console.log(viewportheight);
+      var topOfWindow = $(window).scrollTop();
+      if (imagePos < topOfWindow+viewportheight) {
+      $('.skill_bar').fadeIn('slow');
+      $('.skill_one').animate({
+      width:'60%'}
+      , 2000);
+      $('.skill_two').animate({
+      width:'90%'}
+      , 2000);
+      $('.skill_three').animate({
+      width:'70%'}
+      , 1000);
+      $('.skill_four').animate({
+      width:'55%'}
+      , 1000);
+      $('.skill_bar_progress p').fadeIn('slow',function(){
+      }
+      );
+      }
+      }
+      );
+      }
+      );
