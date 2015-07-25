@@ -24,6 +24,18 @@ exports.addProduct = function(req, res) {
 	});
 };
 
+exports.removeProduct = function(req, res) {
+	console.log('in remove');
+	Product.remove({_id:req.params.id}, function(err) {
+		if (err) {
+			res.send(err);
+		}
+		else {
+			res.send({message: "Product removed successfully"});
+		}
+	});
+};
+
 // ------------------------------------------------------------------------------------------
 //   display methods
 // ------------------------------------------------------------------------------------------
