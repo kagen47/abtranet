@@ -97,7 +97,7 @@ exports.removeFromCart = function(req, res) {
 		else {
 			res.cookie('cart', newCart);
 		}
-		res.redirect('/products/cart');
+		res.redirect('/products/product-details/' + req.params.id);
 	});
 };
 

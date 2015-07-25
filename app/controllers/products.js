@@ -94,7 +94,7 @@ exports.showProduct = function(req, res) {
 		}
 		console.log(data);
 
-		res.render('products/product', {
+		res.render('products/product-details', {
 			product: data,
 			inCart: inCart
 		});
