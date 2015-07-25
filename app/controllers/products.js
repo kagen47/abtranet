@@ -102,31 +102,39 @@ exports.showProduct = function(req, res) {
 };
 
 exports.search = function(req, res) {
-	res.redirect('/products/search/' + req.body.search);
+	res.redirect('/products/search/' + req.body.searchWord);
 };
 
 exports.showSearchResult = function(req, res) {
-	// var searchWords = req.body.searchWord.split(' ');
+	var products = [];
 
-	// async.each(searchWords, function(id, callback) {
-	// 	Product.find({_id:id}).exec(function(err, data) {
-	// 		if (err) return res.send(err);
+	Product.find({
+		model: new RegExp(req.params.searchWord, 'i')
+	}, function(err, data) {
+		if (err) return res.send(err);
 
-	// 		products.push(data[0]);
-	// 		callback();
-	// 	});
-	// }, function(err) {
-	// 	if (err) return res.send(err);
-	// 	res.render('products/cart', {
-	// 		subtotal: cart[0],
-	// 		products: products
-	// 	});
-	// });
+		for (dat in data) {
+			products.push(dat);
+		}
+		Product.find({
+			description: new RegExp(req.params.searchWord, 'i')
+		}, function(err, data2) {
+			if (err) return res.send(err);
+
+			for (dat2 in data2) {
+				products.push(dat2);
+			}
+			res.render('products/search', {
+				searchWord: req.body.searchWord,
+				products: products
+			});
+		});
+	});
 }
 
 exports.showModelSearchResult = function(req, res) {
 	Product.find({
-		model: new RegExp(req.params.search, 'i')
+		model: new RegExp(req.params.searchWord, 'i')
 	}, function(err, data) {
 		if (err) return res.send(err);
 
