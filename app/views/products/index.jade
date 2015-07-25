@@ -111,7 +111,28 @@ html(lang='en')
                           .item.view.view-tenth
                             img(src=product.img alt='work Image')
                             .mask
-                              a.info(href='/product-details', data-toggle='tooltip', data-placement='top', title='Details')
+                              a.info(href='/products/product-details/#{product._id}', data-toggle='tooltip', data-placement='top', title='Details')
+                                i.fa.fa-link
+        .row
+          .col-lg-4.col-sm-4
+            // search button for products page
+            .col-lg-7.about.wow.fadeInRight
+              h3 HP
+          // Products start
+          .bg-lg
+            .container
+              .row
+                .col-lg-12.recent
+                  // images
+                  #owl-demo3.owl-carousel.owl-theme.wow.fadeIn
+                    // This is main
+                    each product in products
+                      if product.manufacturer == 'HP'
+                        if product.img
+                          .item.view.view-tenth
+                            img(src=product.img alt='work Image')
+                            .mask
+                              a.info(href='/products/product-details/#{product._id}', data-toggle='tooltip', data-placement='top', title='Details')
                                 i.fa.fa-link
                     // This is main
             // Lastest Products end
